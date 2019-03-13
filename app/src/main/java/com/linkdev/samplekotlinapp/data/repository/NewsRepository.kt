@@ -7,9 +7,9 @@ import com.linkdev.samplekotlinapp.data.remote.RemoteDataSource
 class NewsRepository constructor(private val remoteDataSource: RemoteDataSource) : BaseRepository(), INewsRepository {
 
 
-    private val TAG: String = "NewsRepository"
+   // private val TAG: String = "NewsRepository"
     override fun getNewsFromApi() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+      //  TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 //
 //    override fun getNewsFromApi() {
