@@ -1,30 +1,26 @@
 package com.linkdev.samplekotlinapp.ui.news
 
-import android.arch.lifecycle.LifecycleObserver
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.Observer
 import com.linkdev.samplekotlinapp.base.BaseViewModel
-import com.linkdev.samplekotlinapp.data.models.News
-import com.linkdev.samplekotlinapp.data.repository.NewsRepository
+import com.linkdev.samplekotlinapp.data.repository.INewsRepository
 import com.linkdev.samplekotlinapp.utils.SampleKotlinApplication
 import javax.inject.Inject
 
-class NewsViewModel : BaseViewModel(), LifecycleObserver {
+class NewsViewModel : BaseViewModel() {
 
     private val TAG: String? = "NewsViewModel"
 
     @Inject
-    lateinit var mRepositoryDataSource: NewsRepository
+    lateinit var mRepositoryDataSource: INewsRepository
 
     init {
 
-        SampleKotlinApplication.mAppComponent.inject(this)
+//        SampleKotlinApplication.ma.inject(this)
     }
 
 
     /**
      * Get users from database
      */
-      fun getNews()= mRepositoryDataSource.getNewsFromApi()
+//      fun getNews()= mRepositoryDataSource.getNewsFromApi()
 
 }

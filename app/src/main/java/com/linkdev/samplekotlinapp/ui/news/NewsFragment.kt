@@ -1,7 +1,7 @@
 package com.linkdev.samplekotlinapp.ui.news
 
 
-import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,10 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import com.linkdev.samplekotlinapp.R
 import com.linkdev.samplekotlinapp.base.BaseFragment
+import javax.inject.Inject
 
 
 class NewsFragment : BaseFragment() {
-    private var mNewsViewModel: NewsViewModel? = null
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    lateinit var newsViewModel: NewsViewModel
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -31,10 +36,9 @@ class NewsFragment : BaseFragment() {
     }
 
     private fun initViewModel() {
-
-        mNewsViewModel = ViewModelProviders.of(this).get(NewsViewModel::class.java)
-        mNewsViewModel?.let { lifecycle.addObserver(it) }
-        mNewsViewModel?.getNews()
+        newsViewModel = ViewModelProviders.of(this, viewModelFactory)
+                .get(NewsViewModel::class.java)
+//        newsViewModel.get/**/
 
 
     }

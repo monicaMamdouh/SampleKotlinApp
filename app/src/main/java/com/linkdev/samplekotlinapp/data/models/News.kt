@@ -3,7 +3,7 @@ package com.linkdev.samplekotlinapp.data.models
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class News {
+ class News(){
 
     @SerializedName("NewsTitle")
     @Expose

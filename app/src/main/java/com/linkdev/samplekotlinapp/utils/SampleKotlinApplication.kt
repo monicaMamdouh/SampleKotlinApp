@@ -1,45 +1,21 @@
 package com.linkdev.samplekotlinapp.utils
 
 import android.app.Application
-import android.content.Context
-import com.linkdev.samplekotlinapp.data.repository.NewsRepository
-import com.linkdev.samplekotlinapp.di.AppComponent
-import com.linkdev.samplekotlinapp.di.AppModule
-import com.linkdev.samplekotlinapp.di.DaggerAppComponent
-import javax.inject.Inject
+import com.linkdev.samplekotlinapp.di.components.AppComponent
+import com.linkdev.samplekotlinapp.di.components.DaggerAppComponent
+import com.linkdev.samplekotlinapp.di.modules.AppModule
 
 class SampleKotlinApplication : Application() {
 
-    @Inject
-    lateinit var mRepositoryDataSource: NewsRepository
 
-    companion object {
-
-        lateinit var mAppComponent: AppComponent
-    }
-
-    init {
-
-        initializeDagger()
-    }
+    lateinit var mAppComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
-
-        mAppComponent.inject(this)
-
-        //Get users from api
-        //mRepositoryDataSource.getNewsFromApi()
-    }
-
-    /**
-     * Initialize AppComponent
-     */
-    fun initializeDagger() {
-
         mAppComponent = DaggerAppComponent.builder()
-                .appModule(AppModule(this))
+                .appModule(AppModule())
                 .build()
     }
+
 
 }
