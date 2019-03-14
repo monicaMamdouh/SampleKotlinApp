@@ -1,16 +1,24 @@
 package com.linkdev.samplekotlinapp.data.repository
 
 import com.linkdev.samplekotlinapp.base.BaseRepository
+import com.linkdev.samplekotlinapp.common.models.Status
+import com.linkdev.samplekotlinapp.data.models.repsonses.NewsResponse
 import com.linkdev.samplekotlinapp.data.remote.RemoteDataSource
+import io.reactivex.Observable
+import io.reactivex.schedulers.Schedulers
 
 
 class NewsRepository constructor(private val remoteDataSource: RemoteDataSource) : BaseRepository(), INewsRepository {
 
 
-   // private val TAG: String = "NewsRepository"
-    override fun getNewsFromApi() {
-      //  TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getNewsFromApi(): Observable<Status<NewsResponse>> {
+        remoteDataSource.getUsersFromApi()
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
+                .subscribe()
+        return Observable.just(null);
     }
+
 //
 //    override fun getNewsFromApi() {
 //

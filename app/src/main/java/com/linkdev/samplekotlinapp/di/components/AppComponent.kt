@@ -1,7 +1,7 @@
 package com.linkdev.samplekotlinapp.di.components
 
 import com.linkdev.samplekotlinapp.di.modules.AppModule
-import com.linkdev.samplekotlinapp.utils.SampleKotlinApplication
+import com.linkdev.samplekotlinapp.SampleKotlinApplication
 import dagger.Component
 import javax.inject.Singleton
 

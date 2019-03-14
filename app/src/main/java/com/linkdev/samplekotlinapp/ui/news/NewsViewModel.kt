@@ -2,7 +2,6 @@ package com.linkdev.samplekotlinapp.ui.news
 
 import com.linkdev.samplekotlinapp.base.BaseViewModel
 import com.linkdev.samplekotlinapp.data.repository.INewsRepository
-import com.linkdev.samplekotlinapp.utils.SampleKotlinApplication
 import javax.inject.Inject
 
 class NewsViewModel : BaseViewModel() {
@@ -21,6 +20,6 @@ class NewsViewModel : BaseViewModel() {
     /**
      * Get users from database
      */
-//      fun getNews()= mRepositoryDataSource.getNewsFromApi()
+      fun getNews()= mRepositoryDataSource.getNewsFromApi()
 
 }

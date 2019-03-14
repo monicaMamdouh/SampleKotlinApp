@@ -51,6 +51,10 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:1.1.1"
     kapt "android.arch.lifecycle:compiler:1.1.1"
 
+    //calligraphy
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+
+
 }
 repositories {
     mavenCentral()

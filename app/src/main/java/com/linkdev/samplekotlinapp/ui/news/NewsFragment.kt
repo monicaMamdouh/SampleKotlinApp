@@ -24,6 +24,22 @@ class NewsFragment : BaseFragment() {
         initViewModel()
     }
 
+    override fun setListeners() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun initializeViews(v: View) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun initViewModel() {
+        newsViewModel = ViewModelProviders.of(this, viewModelFactory)
+                .get(NewsViewModel::class.java)
+
+        newsViewModel.getNews()
+
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -33,14 +49,6 @@ class NewsFragment : BaseFragment() {
     companion object {
 
         fun newInstance(): NewsFragment = NewsFragment()
-    }
-
-    private fun initViewModel() {
-        newsViewModel = ViewModelProviders.of(this, viewModelFactory)
-                .get(NewsViewModel::class.java)
-//        newsViewModel.get/**/
-
-
     }
 
 
