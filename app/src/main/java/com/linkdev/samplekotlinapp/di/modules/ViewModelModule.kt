@@ -8,15 +8,22 @@ import com.linkdev.samplekotlinapp.ui.news.NewsViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import dagger.Provides
+import java.security.Provider
+
 
 @Suppress("unused")
 @Module
 abstract class ViewModelModule {
+
+    @Binds
+    abstract fun bindViewModelFactory(factory: BaseViewModelFactory): ViewModelProvider.Factory
     @Binds
     @IntoMap
     @ViewModelKey(NewsViewModel::class)
     abstract fun bindNewsViewModel(newsViewModel: NewsViewModel): ViewModel
 
-    @Binds
-    abstract fun bindViewModelFactory(factory: BaseViewModelFactory): ViewModelProvider.Factory
+
+
+
 }

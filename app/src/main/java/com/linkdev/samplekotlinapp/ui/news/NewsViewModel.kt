@@ -3,23 +3,25 @@ package com.linkdev.samplekotlinapp.ui.news
 import com.linkdev.samplekotlinapp.base.BaseViewModel
 import com.linkdev.samplekotlinapp.data.repository.INewsRepository
 import javax.inject.Inject
+import android.media.AudioManager
+import com.linkdev.samplekotlinapp.data.repository.NewsRepository
 
-class NewsViewModel : BaseViewModel() {
+
+class NewsViewModel: BaseViewModel() {
 
     private val TAG: String? = "NewsViewModel"
 
-    @Inject
-    lateinit var mRepositoryDataSource: INewsRepository
+    lateinit var mNewsRepository: NewsRepository
 
-    init {
+//    @Inject
+//    fun NewsViewModel(mNewsRepository: NewsRepository){
+//        this.mNewsRepository = mNewsRepository
+//
+//    }
+//
 
-//        SampleKotlinApplication.ma.inject(this)
-    }
 
 
-    /**
-     * Get users from database
-     */
-      fun getNews()= mRepositoryDataSource.getNewsFromApi()
+//      fun getNews()= mNewsRepository.getNewsFromApi()
 
 }

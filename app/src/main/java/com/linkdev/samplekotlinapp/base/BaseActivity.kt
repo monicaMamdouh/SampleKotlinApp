@@ -6,6 +6,9 @@ import android.os.Build
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.linkdev.samplekotlinapp.R
 import com.linkdev.samplekotlinapp.common.helpers.LocalizationHelper
 import com.linkdev.samplekotlinapp.common.wrappers.LocaleContextWrapper
@@ -41,6 +44,11 @@ abstract class BaseActivity : AppCompatActivity() {
                 .commit()
     }
 
+    //Use extension Functions
+    protected fun ViewGroup.inflate(layoutId: Int, attachToRoot: Boolean = false): View {
+        return LayoutInflater.from(context).inflate(layoutId, this, false)
+    }
+
     override fun attachBaseContext(newBase: Context) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -50,6 +58,7 @@ abstract class BaseActivity : AppCompatActivity() {
             super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
         }
     }
+
 
     protected abstract fun initializeViews()
 

@@ -3,7 +3,8 @@ package com.linkdev.samplekotlinapp.data.models
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
- class News(){
+class News() {
+
 
     @SerializedName("NewsTitle")
     @Expose
@@ -26,4 +27,6 @@ import com.google.gson.annotations.SerializedName
     @SerializedName("Likes")
     @Expose
     var likes: String? = null
+
+
 }
