@@ -18,12 +18,11 @@ abstract class ViewModelModule {
 
     @Binds
     abstract fun bindViewModelFactory(factory: BaseViewModelFactory): ViewModelProvider.Factory
+
     @Binds
     @IntoMap
     @ViewModelKey(NewsViewModel::class)
     abstract fun bindNewsViewModel(newsViewModel: NewsViewModel): ViewModel
-
-
 
 
 }

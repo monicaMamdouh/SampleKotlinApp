@@ -6,5 +6,5 @@ import io.reactivex.Observable
 import retrofit2.Response
 
 interface INewsRepository {
-    fun getNewsFromApi(): Observable<Status<NewsResponse>>
+    fun getNewsFromApi()
 }

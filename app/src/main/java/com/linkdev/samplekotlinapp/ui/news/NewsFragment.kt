@@ -11,19 +11,22 @@ import android.view.View
 import android.view.ViewGroup
 import com.linkdev.samplekotlinapp.R
 import com.linkdev.samplekotlinapp.base.BaseFragment
-import dagger.android.AndroidInjection
-import dagger.android.support.AndroidSupportInjection
+import com.linkdev.samplekotlinapp.base.BaseViewModelFactory
 import kotlinx.android.synthetic.main.fragment_news.*
 import javax.inject.Inject
 
 class NewsFragment : BaseFragment() {
     @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
+    lateinit var viewModelFactory: BaseViewModelFactory
 
+    //Todo passing parameter to factory
     private val newsViewModel: NewsViewModel by lazy {
+
         ViewModelProviders.of(this, viewModelFactory).get(NewsViewModel::class.java)
 
     }
+
+
     /*    With Lazy we are going to create it as a non-nullable
      property and will be executed just when you use
      it and just the first time.*/
@@ -72,11 +75,9 @@ class NewsFragment : BaseFragment() {
     override fun initViewModel() {
 
 
-
-         //newsViewModel.getNews()
+        newsViewModel.getNews()
 
     }
-
 
 
 }
